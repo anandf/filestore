@@ -1,0 +1,6 @@
+/target/
+/ObjectStore/
+/PutObjectStoreDirHere/
+.project
+.classpath
+.settings/
