@@ -17,8 +17,8 @@ java -jar target/fileserver.jar
 
 ## Exercise the application
 ```
-curl -X GET http://localhost:8080/simple-greet
-{"message":"Hello World!"}
+curl -X GET http://localhost:8080/v1/files
+[]
 ```
 
 

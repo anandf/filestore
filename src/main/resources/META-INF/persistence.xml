@@ -23,7 +23,7 @@
 
     <persistence-unit name="pu1" transaction-type="JTA">
         <jta-data-source>ds1</jta-data-source>
-        <class>io.anandf.fileserver.File</class>
+        <class>io.anandf.fileserver.FileMetadata</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
             <property name="jakarta.persistence.sql-load-script-source" value="META-INF/init_script.sql"/>
