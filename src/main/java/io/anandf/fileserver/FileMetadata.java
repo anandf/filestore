@@ -30,7 +30,7 @@ import jakarta.persistence.EnumType;
 @Access(AccessType.PROPERTY)
 @NamedQueries({
         @NamedQuery(name = "getFiles",
-                    query = "SELECT f FROM File f and f.status is 3"),
+                    query = "SELECT f FROM File f WHERE f.status=3"),
         @NamedQuery(name = "getFileByName",
         			query = "SELECT f FROM File f WHERE f.name = :name"),
         @NamedQuery(name = "getFileByChecksum",
@@ -62,7 +62,12 @@ public class FileMetadata {
      * Total number of partitions, in case the upload is done as multiple partitions.
      * If the upload is not done as a multipart upload, this value would be set to 0
      */
-    private int partitionCount;
+    private int partitionCount = 0;
+
+    /**
+     * Total number of words present in this given file
+     */
+    private int wordCount = 0;
     
     /**
      * Status of the file upload.
@@ -127,6 +132,16 @@ public class FileMetadata {
 
 	public void setPartitionCount(int partitionCount) {
 		this.partitionCount = partitionCount;
+	}
+
+    @Basic(optional = true)
+    @Column(name = "WORD_COUNT")
+    public int getWordCount() {
+		return wordCount;
+	}
+
+	public void setWordCount(int wordCount) {
+		this.wordCount = wordCount;
 	}
 
 	@Basic(optional = true)
